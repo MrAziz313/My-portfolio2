@@ -98,6 +98,71 @@
    .ftxt3,.ftxt0{
     display: none;
    }
+   /* Style for the progress bar */
+   .progress {
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 13px;
+    margin-top: 10px;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 20px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  width: 0; /* Start with 0 width */
+  animation: fillBar 3s ease-in-out forwards;
+}
+
+/* Keyframes to animate the progress bar */
+@keyframes fillBar {
+  from {
+      width: 0;
+  }
+  to {
+      width: var(--progress-width); /* Custom property for width */
+  }
+}
+.download {
+  background-color: #06df6b;
+  color: white;
+  display: block;
+  width: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease-out;
+  
+}
+
+.download::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+  transition: top 0.4s ease-out;
+}
+
+.download:hover::before {
+  top: 0;
+}
+
+.download:hover {
+  color: #000; /* Text color change */
+  transition: color 0.4s ease-out;
+}
+
+/* Ensure the text appears above the pseudo-element */
+.download div {
+  position: relative;
+  z-index: 2;
+}
 /* Center the image container within the viewport */
 @media screen and (max-width: 576px) {
     .head-img {
